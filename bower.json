@@ -1,0 +1,19 @@
+{
+    "name": "purescript-purescript-either-extra",
+    "license": [
+        "MPL-2.0"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bbarker/purescript-either-extra.git"
+    },
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "output"
+    ],
+    "dependencies": {
+        "purescript-either": "^v4.1.1"
+    }
+}
