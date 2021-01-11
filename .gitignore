@@ -9,4 +9,4 @@ node_modules
 output
 
 # Editor files
-.vscode
+.psc-ide-port

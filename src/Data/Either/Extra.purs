@@ -1,14 +1,12 @@
 module Data.Either.Extra where
 
 import Control.Applicative (pure)
+import Control.Category (identity)
 import Control.Monad (class Monad, bind)
 import Control.Plus (class Plus, empty)
 import Data.Either (Either(..))
 import Data.Function (flip)
 import Prelude ((<<<))
-
-identity :: forall a. a -> a
-identity x = x
 
 catLefts ::  forall a b m. Monad m => Plus m => m (Either a b) -> m a
 catLefts = catMapLefts identity
@@ -24,7 +22,7 @@ leftOr c _ (Right _) = c
 catRights :: forall a b m. Monad m => Plus m => m (Either a b) -> m b
 catRights = catMapRights identity
 
-catMapRights :: forall a b c m. Monad m => Plus m 
+catMapRights :: forall a b c m. Monad m => Plus m
   => (b -> c) -> m (Either a b) -> m c
 catMapRights f = (flip bind) (rightOr empty (pure <<< f))
 
